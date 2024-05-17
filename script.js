@@ -26,6 +26,7 @@ let useB = false;
 let symbol = undefined;
 let aArray;
 let bArray;
+let decimalUsed = false;
 display.textContent = " "
 
 add.addEventListener("click", () => {
@@ -84,13 +85,21 @@ divide.addEventListener("click", () => {
 
 zero.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "0";
         display.textContent = a;
         return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "0";
         display.textContent = b;
         return b;
+        };
     };
 });
 
@@ -231,6 +240,7 @@ plusMinus.addEventListener("click", () => {
 });
 
 decimal.addEventListener("click", () => {
+    decimalUSed = true
     if (useB === false) {
         aArray = a.split("");
         if (aArray.includes(".")) {
@@ -300,7 +310,7 @@ function addition(a, b) {
     b = Number(b);
     let total = a + b;
     a = total + '';
-    if (a.length > 10) {
+    if (a.length > 10 && decimalUsed == true) {
         a = Number(a)
         display.textContent = a.toFixed(5);
         a = a + '';
