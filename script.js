@@ -16,12 +16,17 @@ const nine = document.querySelector("#nine");
 
 const clear = document.querySelector("#clear");
 const equal = document.querySelector("#equal");
+const decimal = document.querySelector("#decimal")
+const plusMinus = document.querySelector("#plus-minus")
 let display = document.querySelector("#display");
 
 let a = "";
 let b = "";
 let useB = false;
 let symbol = undefined;
+let aArray;
+let bArray;
+display.textContent = " "
 
 add.addEventListener("click", () => {
     if (symbol == undefined) {
@@ -95,7 +100,7 @@ one.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "1";
+        b += "1";
         display.textContent = b;
         return b;
     };
@@ -107,7 +112,7 @@ two.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "2";
+        b += "2";
         display.textContent = b;
         return b;
     };
@@ -119,7 +124,7 @@ three.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "3";
+        b += "3";
         display.textContent = b;
         return b;
     };
@@ -131,7 +136,7 @@ four.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "4";
+        b += "4";
         display.textContent = b;
         return b;
     };
@@ -143,7 +148,7 @@ five.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "5";
+        b += "5";
         display.textContent = b;
         return b;
     };
@@ -155,7 +160,7 @@ six.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "6";
+        b += "6";
         display.textContent = b;
         return b;
     };
@@ -167,7 +172,7 @@ seven.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "7";
+        b += "7";
         display.textContent = b;
         return b;
     };
@@ -179,7 +184,7 @@ eight.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "8";
+        b += "8";
         display.textContent = b;
         return b;
     };
@@ -191,10 +196,62 @@ nine.addEventListener("click", () => {
         display.textContent = a;
         return a;    
     } else {
-        b   += "9";
+        b += "9";
         display.textContent = b;
         return b;
     };
+});
+
+plusMinus.addEventListener("click", () => {
+    if (useB === false) {
+        if (a > 0) {
+        a = "-" + a;
+        display.textContent = a;
+        return a;
+        } else {
+        aArray = a.split("");
+        aArray.shift();
+        a = aArray.join();
+        display.textContent = a;
+        return a;
+        };
+    } else {
+        if (b > 0) {
+            b = "-" + b;
+            display.textContent = b;
+            return b;
+            } else {
+            bArray = b.split("");
+            bArray.shift();
+            b = bArray.join();
+            display.textContent = b;
+            return b;
+            };
+    };
+});
+
+decimal.addEventListener("click", () => {
+    if (useB === false) {
+        aArray = a.split("");
+        if (aArray.includes(".")) {
+            display.textContent = a;
+            return a;
+        } else {
+            a += "."
+            display.textContent = a;
+            return a;
+        }
+    } else {
+        bArray = b.split("");
+        if (bArray.includes(".")) {
+            display.textContent = b;
+            return b;
+        } else {
+            b += "."
+            display.textContent = b;
+            return b;
+        }
+    }
 });
 
 equal.addEventListener("click", () => {
@@ -243,8 +300,15 @@ function addition(a, b) {
     b = Number(b);
     let total = a + b;
     a = total + '';
-    display.textContent = a;
-    return a;
+    if (a.length > 10) {
+        a = Number(a)
+        display.textContent = a.toFixed(5);
+        a = a + '';
+        return a;
+    } else {
+        display.textContent = a;
+        return a;
+    };
 };
 
 function subtraction(a, b) {
@@ -252,8 +316,15 @@ function subtraction(a, b) {
     b = Number(b);
     let total = a - b;
     a = total + '';
-    display.textContent = a;
-    return a;
+    if (a.length > 10) {
+        a = Number(a)
+        display.textContent = a.toFixed(5);
+        a = a + '';
+        return a;
+    } else {
+        display.textContent = a;
+        return a;
+    };
 };
 
 function multiplication(a, b) {
@@ -261,8 +332,15 @@ function multiplication(a, b) {
     b = Number(b);
     let total = a * b;
     a = total + '';
-    display.textContent = a;
-    return a;
+    if (a.length > 10) {
+        a = Number(a)
+        display.textContent = a.toFixed(5);
+        a = a + '';
+        return a;
+    } else {
+        display.textContent = a;
+        return a;
+    };
 };
 
 function division(a, b) {
@@ -274,7 +352,14 @@ function division(a, b) {
     b = Number(b);
     let total = a / b;
     a = total + '';
-    display.textContent = a;
-    return a;
+    if (a.length > 10) {
+        a = Number(a)
+        display.textContent = a.toFixed(5);
+        a = a + '';
+        return a;
+    } else {
+        display.textContent = a;
+        return a;
+    };
     };
 };
