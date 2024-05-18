@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #191970;
+    background-color: beige;
     margin-top: 5%;
 }
 
@@ -20,14 +20,14 @@ button {
 
 #calculator {
     width: 600px;
-    border: solid 2px red;
+    border: solid 2px black;
     height: 700px;
     padding: 20px;
-    background-color: #1C1C1C;
+    background-color: #C0C0C0;
 }
 
 #display {
-    border: solid 2px black;
+    border: solid 5px #2F4F4F;
     height: 100px;
     display: flex;
     justify-content: flex-end;
@@ -36,7 +36,7 @@ button {
     padding: 1%;
     margin-bottom: 3%; 
     background-color: #013220;
-    color: #fffff0;
+    color: #39FF14;
 }
 
 .flex-row {
@@ -54,12 +54,12 @@ button {
 }
 
 .functions {
-    background-color: #990000;
+    background-color: #FF4500;
     color: white;
 }
 
 .numbers {
-    background-color: #4B0082;
+    background-color: #000000;
     color: white;
 }
   

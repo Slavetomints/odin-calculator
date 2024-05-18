@@ -312,7 +312,7 @@ plusMinus.addEventListener("click", () => {
 });
 
 decimal.addEventListener("click", () => {
-    decimalUSed = true
+    decimalUsed = true
     if (useB === false) {
         aArray = a.split("");
         if (aArray.includes(".")) {
