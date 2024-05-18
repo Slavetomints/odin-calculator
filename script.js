@@ -105,109 +105,181 @@ zero.addEventListener("click", () => {
 
 one.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "1";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "1";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 two.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "2";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "2";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 three.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "3";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "3";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 four.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "4";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "4";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 five.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "5";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "5";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 six.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "6";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "6";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 seven.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "7";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "7";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 eight.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "8";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "8";
         display.textContent = b;
         return b;
+        };
     };
 });
 
 nine.addEventListener("click", () => {
     if (useB === false) {
+        if (a.length > 10) {
+            alert("Max length reached")
+        } else {
         a += "9";
         display.textContent = a;
-        return a;    
+        return a;
+        };
     } else {
+        if (b.length > 10) {
+            alert("Max length reached")
+        } else {
         b += "9";
         display.textContent = b;
         return b;
+        };
     };
 });
 
@@ -282,10 +354,17 @@ function clearTheCalc() {
     b = "";
     useB = false;
     symbol = undefined;
+    decimalUsed = false;
+    aArray = [];
+    bArray = [];
     display.textContent = "Cleared!";
 }
 
 function operate() {
+    aArray = a.split("")
+    if (aArray.includes(".")) {
+        decimalUsed = true;
+    }
     if (symbol == "+") {
         a = addition(a, b);
         b = "";
@@ -326,7 +405,7 @@ function subtraction(a, b) {
     b = Number(b);
     let total = a - b;
     a = total + '';
-    if (a.length > 10) {
+    if (a.length > 10 && decimalUsed == true) {
         a = Number(a)
         display.textContent = a.toFixed(5);
         a = a + '';
@@ -342,7 +421,7 @@ function multiplication(a, b) {
     b = Number(b);
     let total = a * b;
     a = total + '';
-    if (a.length > 10) {
+    if (a.length > 10 && decimalUsed == true) {
         a = Number(a)
         display.textContent = a.toFixed(5);
         a = a + '';
@@ -362,7 +441,7 @@ function division(a, b) {
     b = Number(b);
     let total = a / b;
     a = total + '';
-    if (a.length > 10) {
+    if (a.length > 10 && decimalUsed == true) {
         a = Number(a)
         display.textContent = a.toFixed(5);
         a = a + '';
